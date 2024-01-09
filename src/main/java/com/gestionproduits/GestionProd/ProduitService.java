@@ -31,20 +31,18 @@ public class ProduitService {
         }
     }
 
-    public Produit readProduit(Long id) {
+    public Produit ReadProduit(Long id) {
         for (Produit produit : produits) {
             if (produit.getId().equals(id)) {
                 return produit;
             }
         }
-        return null; // Aucun produit trouvé avec cet ID
+        return null; 
     }
 
-    // Mettre à jour un produit
     public void updateProduit(Produit updatedProduit) throws IllegalArgumentException {
         for (Produit produit : produits) {
             if (produit.getId().equals(updatedProduit.getId())) {
-                // Validation des données (prix et quantité positifs)
                 if (updatedProduit.getPrix() >= 0 && updatedProduit.getQuantite() >= 0) {
                     produit.setNom(updatedProduit.getNom());
                     produit.setPrix(updatedProduit.getPrix());
@@ -59,7 +57,6 @@ public class ProduitService {
         throw new IllegalArgumentException("Produit non trouvé pour la mise à jour");
     }
 
-    // Supprimer un produit
     public void deleteProduit(Long id) throws IllegalArgumentException {
         Produit produitToDelete = null;
         for (Produit produit : produits) {
