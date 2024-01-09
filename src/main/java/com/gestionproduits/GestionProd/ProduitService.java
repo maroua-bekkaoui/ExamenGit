@@ -18,7 +18,7 @@ public class ProduitService {
         return false; 
     }
 
-    public void createProduit(Produit produit) throws IllegalArgumentException {
+    public void CreateProduit(Produit produit) throws IllegalArgumentException {
         if (!produitExists(produit.getId(), produit.getNom())) {
             if (produit.getPrix() >= 0 && produit.getQuantite() >= 0) {
                 produits.add(produit);
@@ -57,7 +57,7 @@ public class ProduitService {
         throw new IllegalArgumentException("Produit non trouvé pour la mise à jour");
     }
 
-    public void deleteProduit(Long id) throws IllegalArgumentException {
+    public void DeleteProduit(Long id) throws IllegalArgumentException {
         Produit produitToDelete = null;
         for (Produit produit : produits) {
             if (produit.getId().equals(id)) {
